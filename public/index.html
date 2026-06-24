@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>S3 Fitness – Panipat's Biggest Gym | Swimming Pool · Sauna · CrossFit</title>
+  <meta name="description" content="S3 Fitness – Panipat's largest gym with swimming pool, sauna, CrossFit, Zumba, yoga, certified trainers and nutrition consulting. Join now in Sec-19, Sushant City." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── TOKENS ── */
+    :root {
+      --bg: #111827;
+      --bg2: #172033;
+      --card: #202A3D;
+      --card2: #27354D;
+      --cyan: #F97316;
+      --cyan-dim: rgba(249,115,22,0.14);
+      --cyan-glow: rgba(249,115,22,0.34);
+      --text: #F8FAFC;
+      --muted: #A7B0C0;
+      --border: rgba(255,255,255,0.10);
+      --gold: #FACC15;
+      --bebas: 'Bebas Neue', sans-serif;
+      --inter: 'Inter', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--inter);
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%;
+      height: 70px;
+      background: rgba(12,14,20,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s;
+    }
+    .nav-logo {
+      font-family: var(--bebas);
+      font-size: 2rem;
+      letter-spacing: 2px;
+      color: var(--cyan);
+    }
+    .nav-logo span { color: var(--text); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      font-size: 0.875rem; font-weight: 500;
+      color: var(--muted); letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--cyan); color: #000;
+      padding: 10px 24px; border-radius: 6px;
+      font-weight: 700; font-size: 0.85rem; letter-spacing: 0.5px;
+      cursor: pointer; border: none;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .nav-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      align-items: center;
+      padding: 120px 5% 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 70% 50%, rgba(0,212,255,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 10% 80%, rgba(0,212,255,0.04) 0%, transparent 60%);
+    }
+    .hero-grid-lines {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-content { position: relative; z-index: 2; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--cyan-dim); border: 1px solid var(--cyan-glow);
+      color: var(--cyan); padding: 6px 16px; border-radius: 100px;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 1px;
+      text-transform: uppercase; margin-bottom: 28px;
+    }
+    .hero-badge::before {
+      content: ''; width: 7px; height: 7px;
+      background: var(--cyan); border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+    h1 {
+      font-family: var(--bebas);
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      line-height: 0.92;
+      letter-spacing: 2px;
+      margin-bottom: 24px;
+    }
+    h1 .accent { color: var(--cyan); }
+    .hero-sub {
+      font-size: 1.1rem; color: var(--muted);
+      max-width: 520px; margin-bottom: 40px; line-height: 1.7;
+    }
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--cyan); color: #000;
+      padding: 16px 36px; border-radius: 8px;
+      font-weight: 700; font-size: 0.95rem; letter-spacing: 0.3px;
+      cursor: pointer; border: none;
+      transition: all 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-2px); box-shadow: 0 8px 30px var(--cyan-glow); }
+    .btn-secondary {
+      background: transparent; color: var(--text);
+      padding: 16px 36px; border-radius: 8px;
+      font-weight: 600; font-size: 0.95rem;
+      cursor: pointer; border: 1px solid var(--border);
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--cyan); color: var(--cyan); }
+
+    .hero-stats {
+      display: flex; gap: 40px; margin-top: 56px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+    .stat-num {
+      font-family: var(--bebas);
+      font-size: 2.8rem; color: var(--cyan); line-height: 1;
+    }
+    .stat-label { font-size: 0.8rem; color: var(--muted); letter-spacing: 0.5px; margin-top: 4px; }
+
+    /* Hero Ticker Card */
+    .hero-right { position: relative; z-index: 2; }
+    .ticker-track {
+      display: flex; flex-direction: column; gap: 0;
+      height: 500px; overflow: hidden;
+      border-left: 2px solid var(--cyan);
+      padding-left: 24px;
+      position: relative;
+    }
+    .ticker-inner {
+      display: flex; flex-direction: column; gap: 14px;
+      animation: tickerUp 20s linear infinite;
+    }
+    @keyframes tickerUp {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-50%); }
+    }
+    .ticker-item {
+      font-family: var(--bebas);
+      font-size: 1.4rem;
+      letter-spacing: 3px;
+      color: var(--muted);
+      white-space: nowrap;
+      transition: color 0.3s;
+    }
+    .ticker-item.highlight { color: var(--cyan); }
+    .hero-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      margin-top: 24px;
+    }
+    .rating-row { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .stars { color: var(--gold); font-size: 1.1rem; letter-spacing: 2px; }
+    .rating-num { font-family: var(--bebas); font-size: 2rem; color: var(--text); }
+    .rating-count { font-size: 0.82rem; color: var(--muted); }
+    .amenities { display: flex; flex-wrap: wrap; gap: 8px; }
+    .amenity-tag {
+      background: var(--card2); border: 1px solid var(--border);
+      color: var(--muted); font-size: 0.78rem; padding: 5px 12px;
+      border-radius: 100px; letter-spacing: 0.3px;
+    }
+
+    /* ── TICKER BAR ── */
+    .ticker-bar {
+      background: var(--cyan); color: #000;
+      padding: 12px 0; overflow: hidden;
+      font-family: var(--bebas); letter-spacing: 3px; font-size: 1rem;
+    }
+    .ticker-bar-inner {
+      display: flex; gap: 60px; width: max-content;
+      animation: scrollLeft 25s linear infinite;
+    }
+    @keyframes scrollLeft {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .ticker-dot { color: rgba(0,0,0,0.4); }
+
+    /* ── SECTION COMMON ── */
+    section { padding: 100px 5%; }
+    .section-eye {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--cyan);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: var(--bebas);
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      line-height: 0.95; letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+    .section-sub { color: var(--muted); max-width: 560px; line-height: 1.7; margin-bottom: 60px; }
+
+    /* ── SERVICES ── */
+    #services { background: var(--bg2); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .service-card {
+      background: var(--card);
+      padding: 36px 28px;
+      transition: background 0.25s;
+      cursor: default;
+    }
+    .service-card:hover { background: var(--card2); }
+    .service-card:hover .service-icon { transform: scale(1.15); }
+    .service-card:hover .service-name { color: var(--cyan); }
+    .service-icon { font-size: 2.2rem; margin-bottom: 16px; transition: transform 0.25s; display: block; }
+    .service-name {
+      font-family: var(--bebas); font-size: 1.4rem;
+      letter-spacing: 1px; margin-bottom: 8px;
+      transition: color 0.25s;
+    }
+    .service-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── WHY US ── */
+    #why { position: relative; overflow: hidden; }
+    .why-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: center;
+    }
+    .why-visual {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    .why-num-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 32px 24px;
+      text-align: center;
+    }
+    .why-num-card:nth-child(2) { margin-top: 32px; }
+    .why-num-card:nth-child(4) { margin-top: -32px; }
+    .why-big {
+      font-family: var(--bebas); font-size: 3.2rem;
+      color: var(--cyan); line-height: 1;
+    }
+    .why-small { font-size: 0.8rem; color: var(--muted); margin-top: 6px; letter-spacing: 0.5px; }
+    .why-list { list-style: none; display: flex; flex-direction: column; gap: 24px; }
+    .why-item { display: flex; gap: 16px; align-items: flex-start; }
+    .why-icon {
+      width: 44px; height: 44px; min-width: 44px;
+      background: var(--cyan-dim); border: 1px solid var(--cyan-glow);
+      border-radius: 10px; display: flex; align-items: center;
+      justify-content: center; font-size: 1.1rem;
+    }
+    .why-text-head { font-weight: 600; font-size: 0.95rem; margin-bottom: 4px; }
+    .why-text-sub { font-size: 0.83rem; color: var(--muted); line-height: 1.5; }
+
+    /* ── PLANS ── */
+    #plans { background: var(--bg2); }
+    .plans-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    }
+    .plan-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 36px 28px;
+      position: relative; transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .plan-card:hover { transform: translateY(-6px); }
+    .plan-card.popular {
+      border-color: var(--cyan);
+      box-shadow: 0 0 40px rgba(0,212,255,0.12);
+    }
+    .plan-card.popular:hover { box-shadow: 0 8px 60px rgba(0,212,255,0.2); }
+    .popular-badge {
+      position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+      background: var(--cyan); color: #000;
+      font-size: 0.72rem; font-weight: 800; letter-spacing: 1.5px;
+      text-transform: uppercase; padding: 4px 18px; border-radius: 100px;
+    }
+    .plan-name {
+      font-family: var(--bebas); font-size: 1.6rem;
+      letter-spacing: 2px; color: var(--muted); margin-bottom: 20px;
+    }
+    .plan-price-row { display: flex; align-items: flex-end; gap: 8px; margin-bottom: 4px; }
+    .plan-price {
+      font-family: var(--bebas); font-size: 3.6rem;
+      color: var(--text); line-height: 1;
+    }
+    .plan-currency { font-family: var(--bebas); font-size: 1.8rem; align-self: flex-end; padding-bottom: 6px; color: var(--muted); }
+    .plan-old { font-size: 0.85rem; color: var(--muted); text-decoration: line-through; margin-bottom: 4px; }
+    .plan-duration { font-size: 0.8rem; color: var(--muted); margin-bottom: 28px; }
+    .plan-features { list-style: none; margin-bottom: 32px; display: flex; flex-direction: column; gap: 12px; }
+    .plan-features li {
+      font-size: 0.875rem; display: flex; align-items: center; gap: 10px; color: var(--muted);
+    }
+    .plan-features li::before {
+      content: '✓'; color: var(--cyan); font-weight: 700;
+      width: 18px; height: 18px; min-width: 18px;
+      background: var(--cyan-dim); border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 0.7rem;
+    }
+    .plan-btn {
+      width: 100%; padding: 14px; border-radius: 8px;
+      font-weight: 700; font-size: 0.9rem; cursor: pointer;
+      border: none; letter-spacing: 0.3px; transition: all 0.2s;
+    }
+    .plan-btn-outline {
+      background: transparent; color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .plan-btn-outline:hover { border-color: var(--cyan); color: var(--cyan); }
+    .plan-btn-filled { background: var(--cyan); color: #000; }
+    .plan-btn-filled:hover { opacity: 0.88; box-shadow: 0 6px 24px var(--cyan-glow); }
+
+    /* ── TESTIMONIALS ── */
+    .reviews-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+    }
+    .review-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 28px 24px;
+    }
+    .review-stars { color: var(--gold); font-size: 0.9rem; margin-bottom: 14px; }
+    .review-text { font-size: 0.9rem; color: var(--muted); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
+    .review-author { display: flex; align-items: center; gap: 12px; }
+    .review-avatar {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: var(--cyan-dim); border: 1px solid var(--cyan-glow);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--bebas); font-size: 1rem; color: var(--cyan);
+    }
+    .review-name { font-weight: 600; font-size: 0.875rem; }
+    .review-time { font-size: 0.75rem; color: var(--muted); }
+
+    /* ── TRIAL FORM ── */
+    #trial { background: var(--bg2); }
+    .trial-wrap {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .trial-visual { position: relative; }
+    .trial-big-text {
+      font-family: var(--bebas);
+      font-size: clamp(4rem, 10vw, 8rem);
+      line-height: 0.88; letter-spacing: 2px;
+      color: rgba(255,255,255,0.04);
+      pointer-events: none;
+      user-select: none;
+    }
+    .trial-badge-stack {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      display: flex; flex-direction: column; align-items: center; gap: 12px;
+    }
+    .trial-big-num {
+      font-family: var(--bebas); font-size: 6rem;
+      color: var(--cyan); line-height: 1;
+    }
+    .trial-big-label {
+      font-size: 0.85rem; color: var(--muted); letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .form-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 20px; padding: 40px;
+    }
+    .form-title { font-family: var(--bebas); font-size: 2rem; margin-bottom: 6px; }
+    .form-sub { font-size: 0.85rem; color: var(--muted); margin-bottom: 28px; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.5px; margin-bottom: 8px; display: block; color: var(--muted); text-transform: uppercase; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; background: var(--bg);
+      border: 1px solid var(--border); border-radius: 8px;
+      color: var(--text); font-family: var(--inter);
+      font-size: 0.9rem; padding: 12px 16px;
+      outline: none; transition: border-color 0.2s;
+      appearance: none;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--cyan);
+    }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-submit {
+      width: 100%; padding: 16px;
+      background: var(--cyan); color: #000;
+      font-weight: 800; font-size: 1rem; letter-spacing: 0.5px;
+      border: none; border-radius: 8px; cursor: pointer;
+      transition: all 0.2s; margin-top: 8px;
+    }
+    .form-submit:hover { opacity: 0.88; transform: translateY(-1px); box-shadow: 0 8px 30px var(--cyan-glow); }
+    .form-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .form-notice { font-size: 0.75rem; color: var(--muted); text-align: center; margin-top: 12px; }
+    .form-msg { padding: 14px 16px; border-radius: 8px; font-size: 0.875rem; margin-top: 14px; display: none; }
+    .form-msg.success { background: rgba(0,212,255,0.1); border: 1px solid var(--cyan-glow); color: var(--cyan); }
+    .form-msg.error { background: rgba(255,80,80,0.1); border: 1px solid rgba(255,80,80,0.3); color: #ff6b6b; }
+
+    /* ── CONTACT ── */
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+    }
+    .contact-info { display: flex; flex-direction: column; gap: 28px; }
+    .contact-item { display: flex; gap: 16px; align-items: flex-start; }
+    .contact-icon {
+      width: 48px; height: 48px; min-width: 48px;
+      background: var(--cyan-dim); border: 1px solid var(--cyan-glow);
+      border-radius: 12px; display: flex; align-items: center;
+      justify-content: center; font-size: 1.2rem;
+    }
+    .contact-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+    .contact-value { font-size: 0.95rem; color: var(--text); line-height: 1.5; }
+    .contact-value a { color: var(--text); transition: color 0.2s; }
+    .contact-value a:hover { color: var(--cyan); }
+    .hours-grid {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 24px; margin-top: 8px;
+    }
+    .hours-title { font-family: var(--bebas); font-size: 1.2rem; letter-spacing: 1px; margin-bottom: 14px; }
+    .hours-row { display: flex; justify-content: space-between; font-size: 0.85rem; padding: 8px 0; border-bottom: 1px solid var(--border); }
+    .hours-row:last-child { border-bottom: none; }
+    .hours-day { color: var(--muted); }
+    .hours-time { color: var(--text); font-weight: 500; }
+    .open-now { color: var(--cyan); font-weight: 700; font-size: 0.78rem; }
+
+    /* ── MAP ── */
+    .map-wrapper {
+      border-radius: 16px; overflow: hidden;
+      border: 1px solid var(--border); height: 340px;
+    }
+    .map-wrapper iframe { width: 100%; height: 100%; border: none; }
+
+    /* ── STICKY CTA ── */
+    .sticky-cta {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 99;
+      background: rgba(12,14,20,0.95); backdrop-filter: blur(20px);
+      border-top: 1px solid var(--border);
+      padding: 14px 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      transform: translateY(100%); transition: transform 0.4s ease;
+    }
+    .sticky-cta.visible { transform: translateY(0); }
+    .sticky-left { font-size: 0.95rem; font-weight: 600; }
+    .sticky-left span { color: var(--cyan); }
+    .sticky-right { display: flex; gap: 12px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg); border-top: 1px solid var(--border);
+      padding: 60px 5% 30px;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px; margin-bottom: 48px;
+    }
+    .footer-logo { font-family: var(--bebas); font-size: 2rem; color: var(--cyan); letter-spacing: 2px; margin-bottom: 12px; }
+    .footer-logo span { color: var(--text); }
+    .footer-tagline { font-size: 0.85rem; color: var(--muted); line-height: 1.6; max-width: 260px; }
+    .footer-col-title { font-family: var(--bebas); font-size: 1rem; letter-spacing: 2px; color: var(--text); margin-bottom: 16px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { font-size: 0.85rem; color: var(--muted); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--cyan); }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 24px; border-top: 1px solid var(--border);
+      font-size: 0.8rem; color: var(--muted);
+    }
+    .social-links { display: flex; gap: 14px; }
+    .social-link {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: var(--card); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; transition: all 0.2s; cursor: pointer;
+      text-decoration: none;
+    }
+    .social-link:hover { border-color: var(--cyan); background: var(--cyan-dim); }
+
+    /* ── MODAL ── */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 200;
+      background: rgba(0,0,0,0.8); backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 20px; padding: 40px;
+      width: 90%; max-width: 480px;
+      transform: translateY(20px); transition: transform 0.3s;
+    }
+    .modal-overlay.open .modal { transform: translateY(0); }
+    .modal-close {
+      float: right; cursor: pointer; font-size: 1.4rem;
+      color: var(--muted); background: none; border: none;
+      transition: color 0.2s; line-height: 1;
+    }
+    .modal-close:hover { color: var(--text); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      #hero { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .why-grid, .trial-wrap, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .plans-grid { grid-template-columns: 1fr; max-width: 400px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      nav .nav-links { display: none; }
+      .trial-visual { display: none; }
+    }
+    @media (max-width: 600px) {
+      section { padding: 70px 5%; }
+      .services-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 24px; flex-wrap: wrap; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-up {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .stagger-1 { transition-delay: 0.1s; }
+    .stagger-2 { transition-delay: 0.2s; }
+    .stagger-3 { transition-delay: 0.3s; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">S3 <span>FITNESS</span></div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#plans">Plans</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-cta" onclick="openModal()">FREE TRIAL</button>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid-lines"></div>
+    <div class="hero-content">
+      <div class="hero-badge">🏆 Panipat's Largest Gym · 4.8★ · 144 Reviews</div>
+      <h1>TRAIN<br><span class="accent">HARDER.</span><br>LIVE<br>STRONGER.</h1>
+      <p class="hero-sub">Panipat's biggest fitness destination — 14+ services under one roof. From heavy iron to swimming laps, from CrossFit to Zumba, S3 Fitness has your transformation covered.</p>
+      <div class="hero-ctas">
+        <button class="btn-primary" onclick="openModal()">CLAIM YOUR FREE TRIAL</button>
+        <button class="btn-secondary" onclick="document.getElementById('plans').scrollIntoView({behavior:'smooth'})">VIEW PLANS</button>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">10K+</div>
+          <div class="stat-label">ACTIVE MEMBERS</div>
+        </div>
+        <div>
+          <div class="stat-num">14+</div>
+          <div class="stat-label">FITNESS PROGRAMS</div>
+        </div>
+        <div>
+          <div class="stat-num">4.8★</div>
+          <div class="stat-label">GOOGLE RATING</div>
+        </div>
+        <div>
+          <div class="stat-num">5+</div>
+          <div class="stat-label">YEARS IN BUSINESS</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="ticker-track">
+        <div class="ticker-inner" id="ticker"></div>
+      </div>
+      <div class="hero-card">
+        <div class="rating-row">
+          <div class="stars">★★★★★</div>
+          <div class="rating-num">4.8</div>
+          <div class="rating-count">144 Google Reviews</div>
+        </div>
+        <div class="amenities" id="amenities"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER BAR -->
+  <div class="ticker-bar" aria-hidden="true">
+    <div class="ticker-bar-inner" id="tickerBar"></div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-eye">WHAT WE OFFER</div>
+    <h2 class="section-title">EVERYTHING YOU NEED<br>TO GET RESULTS</h2>
+    <p class="section-sub">From elite strength equipment to a full swimming pool and sauna — we've built a complete fitness ecosystem in Sec-19, Panipat.</p>
+    <div class="services-grid" id="servicesGrid">
+      <!-- Populated by JS -->
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section id="why">
+    <div class="why-grid">
+      <div class="why-visual fade-up">
+        <div class="why-num-card"><div class="why-big">30K+</div><div class="why-small">SQ FT SPACE</div></div>
+        <div class="why-num-card"><div class="why-big">50+</div><div class="why-small">EQUIPMENT STATIONS</div></div>
+        <div class="why-num-card"><div class="why-big">15+</div><div class="why-small">CERTIFIED TRAINERS</div></div>
+        <div class="why-num-card"><div class="why-big">6AM</div><div class="why-small">OPENS EARLY</div></div>
+      </div>
+      <div>
+        <div class="section-eye">WHY S3 FITNESS</div>
+        <h2 class="section-title">PANIPAT'S MOST COMPLETE GYM</h2>
+        <p class="section-sub" style="margin-bottom:36px;">We're not just bigger — we're better equipped, better staffed, and designed to take your fitness seriously.</p>
+        <ul class="why-list">
+          <li class="why-item fade-up">
+            <div class="why-icon">🏛️</div>
+            <div>
+              <div class="why-text-head">Massive, Modern Facility</div>
+              <div class="why-text-sub">Panipat's largest gym floor with brand-new machines, proper ventilation, and a clean environment that members rave about.</div>
+            </div>
+          </li>
+          <li class="why-item fade-up stagger-1">
+            <div class="why-icon">🎓</div>
+            <div>
+              <div class="why-text-head">Certified, Supportive Trainers</div>
+              <div class="why-text-sub">Our trainers don't just watch — they guide, motivate, and adjust your form. Professional, friendly, and results-focused.</div>
+            </div>
+          </li>
+          <li class="why-item fade-up stagger-2">
+            <div class="why-icon">🏊</div>
+            <div>
+              <div class="why-text-head">Swimming Pool + Sauna</div>
+              <div class="why-text-sub">Full aquatics zone and recovery sauna — features you won't find at any other gym in Panipat.</div>
+            </div>
+          </li>
+          <li class="why-item fade-up stagger-3">
+            <div class="why-icon">🔒</div>
+            <div>
+              <div class="why-text-head">Face Lock Entry & Cafe</div>
+              <div class="why-text-sub">Secure face-recognition access, a cafeteria area, and a supplements corner for the complete premium experience.</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANS -->
+  <section id="plans">
+    <div class="section-eye">MEMBERSHIP</div>
+    <h2 class="section-title">PICK YOUR PLAN</h2>
+    <p class="section-sub">Transparent pricing with zero hidden fees. Every plan includes full gym access and locker room.</p>
+    <div class="plans-grid" id="plansGrid">
+      <!-- Populated by JS -->
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews" style="background: var(--bg2)">
+    <div class="section-eye">WHAT MEMBERS SAY</div>
+    <h2 class="section-title">4.8 STARS FROM<br>144 REAL MEMBERS</h2>
+    <p class="section-sub">Don't take our word for it — here's what Panipat's fitness community says about training at S3.</p>
+    <div class="reviews-grid" id="reviewsGrid">
+      <!-- Populated by JS -->
+    </div>
+    <div style="text-align:center; margin-top:40px;">
+      <a href="https://www.google.com/search?q=S3+Fitness+Panipat" target="_blank" style="font-size:0.875rem; color: var(--muted); border-bottom: 1px solid var(--border); padding-bottom:2px; transition: color 0.2s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--muted)'">Read all 144 reviews on Google →</a>
+    </div>
+  </section>
+
+  <!-- FREE TRIAL FORM -->
+  <section id="trial">
+    <div class="trial-wrap">
+      <div class="trial-visual">
+        <div class="trial-big-text">FREE<br>TRIAL<br>TODAY</div>
+        <div class="trial-badge-stack">
+          <div class="trial-big-num">FREE</div>
+          <div class="trial-big-label">1-Day Trial Pass</div>
+        </div>
+      </div>
+      <div class="form-card fade-up">
+        <div class="form-title">BOOK YOUR FREE TRIAL</div>
+        <div class="form-sub">No commitment. No credit card. Just show up and experience S3 Fitness for free.</div>
+        <form id="trialForm" onsubmit="submitTrial(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Full Name *</label>
+              <input type="text" name="name" placeholder="Rahul Sharma" required />
+            </div>
+            <div class="form-group">
+              <label>Mobile Number *</label>
+              <input type="tel" name="phone" placeholder="9876543210" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email (Optional)</label>
+            <input type="email" name="email" placeholder="rahul@email.com" />
+          </div>
+          <div class="form-group">
+            <label>Interested In</label>
+            <select name="planId">
+              <option value="">Choose a plan...</option>
+              <option value="monthly">Monthly – ₹1,499</option>
+              <option value="quarterly">Quarterly – ₹3,999 (Most Popular)</option>
+              <option value="annual">Annual – ₹11,999 (Best Value)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Your Fitness Goal</label>
+            <select name="goal">
+              <option value="">Select your goal...</option>
+              <option value="weight-loss">Weight Loss</option>
+              <option value="muscle-gain">Muscle Gain</option>
+              <option value="endurance">Endurance & Cardio</option>
+              <option value="flexibility">Flexibility & Yoga</option>
+              <option value="swimming">Swimming / Aquatics</option>
+              <option value="overall">Overall Fitness</option>
+            </select>
+          </div>
+          <button type="submit" class="form-submit" id="trialSubmit">GET MY FREE TRIAL PASS →</button>
+          <div class="form-notice">📞 Our team calls within 2 hours to confirm your slot.</div>
+          <div class="form-msg" id="trialMsg"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="background: var(--bg2)">
+    <div class="section-eye">GET IN TOUCH</div>
+    <h2 class="section-title">FIND US IN PANIPAT</h2>
+    <p class="section-sub">Visit us, call us, or drop a message — we'll get back to you fast.</p>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <div class="contact-label">Address</div>
+              <div class="contact-value">Sec-19, near Mount Abu School,<br>Ansals Sushant City, Azizullahpur Village,<br>Panipat, Haryana – 132104</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div>
+              <div class="contact-label">Phone</div>
+              <div class="contact-value"><a href="tel:+917015205692">+91 70152 05692</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📸</div>
+            <div>
+              <div class="contact-label">Instagram</div>
+              <div class="contact-value"><a href="https://instagram.com/s3_fitness_pnp" target="_blank">@s3_fitness_pnp · 7.7K+ followers</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="hours-grid" style="margin-top:28px;">
+          <div class="hours-title">OPENING HOURS</div>
+          <div class="hours-row"><span class="hours-day">Monday – Friday</span><span class="hours-time">5:30 AM – 10:00 PM <span class="open-now">● OPEN NOW</span></span></div>
+          <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">6:00 AM – 9:00 PM</span></div>
+          <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time">7:00 AM – 8:00 PM</span></div>
+        </div>
+        <!-- Contact Form -->
+        <form id="contactForm" onsubmit="submitContact(event)" style="margin-top:28px;">
+          <div class="form-row">
+            <div class="form-group"><label>Name *</label><input type="text" name="name" placeholder="Your name" required /></div>
+            <div class="form-group"><label>Phone</label><input type="tel" name="phone" placeholder="9876543210" /></div>
+          </div>
+          <div class="form-group"><label>Subject</label><input type="text" name="subject" placeholder="Membership query" /></div>
+          <div class="form-group"><label>Message *</label><textarea name="message" placeholder="What would you like to know?" required></textarea></div>
+          <button type="submit" class="form-submit" id="contactSubmit" style="margin-top:0">SEND MESSAGE →</button>
+          <div class="form-msg" id="contactMsg"></div>
+        </form>
+      </div>
+      <div>
+        <div class="map-wrapper">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.7827774413837!2d76.99!3d29.39!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390dd9da23baa6b3%3A0x1678759f46f0e345!2sS3%20Fitness%20-%20Best%20Gym%20in%20Panipat!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+            allowfullscreen loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+        <div style="display:flex; gap:12px; margin-top:16px; flex-wrap:wrap;">
+          <a href="https://maps.google.com/?q=S3+Fitness+Panipat" target="_blank" class="btn-primary" style="font-size:0.85rem; padding:12px 24px; display:inline-block; border-radius:8px; font-weight:700; color:#000; background:var(--cyan);">📍 Get Directions</a>
+          <a href="tel:+917015205692" class="btn-secondary" style="font-size:0.85rem; padding:12px 24px; display:inline-block; border-radius:8px; font-weight:600; border:1px solid var(--border);">📞 Call Us Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">S3 <span>FITNESS</span></div>
+        <div class="footer-tagline">Panipat's biggest and best gym. Certified trainers, swimming pool, sauna, and 14+ fitness programs — all under one roof in Sec-19, Sushant City.</div>
+        <div class="social-links" style="margin-top:20px;">
+          <a class="social-link" href="https://instagram.com/s3_fitness_pnp" target="_blank" title="Instagram">📸</a>
+          <a class="social-link" href="https://facebook.com/S3fitnesspanipat" target="_blank" title="Facebook">👥</a>
+          <a class="social-link" href="tel:+917015205692" title="Call">📞</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">QUICK LINKS</div>
+        <ul class="footer-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#plans">Membership</a></li>
+          <li><a href="#why">About Us</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#trial">Free Trial</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">PROGRAMS</div>
+        <ul class="footer-links">
+          <li><a href="#services">Weight Training</a></li>
+          <li><a href="#services">CrossFit</a></li>
+          <li><a href="#services">Yoga & Zumba</a></li>
+          <li><a href="#services">Swimming</a></li>
+          <li><a href="#services">Personal Training</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">CONTACT</div>
+        <ul class="footer-links">
+          <li><a href="tel:+917015205692">70152 05692</a></li>
+          <li><a href="https://instagram.com/s3_fitness_pnp" target="_blank">@s3_fitness_pnp</a></li>
+          <li><span style="color:var(--muted); font-size:0.85rem">Sec-19, Sushant City,<br>Panipat, Haryana</span></li>
+          <li><span style="color:var(--muted); font-size:0.85rem">Open: 5:30 AM – 10 PM</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2025 S3 Fitness, Panipat. All rights reserved.</div>
+      <div>Built for champions.</div>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div style="font-family: var(--bebas); font-size: 1.8rem; margin-bottom: 4px; clear:both;">BOOK FREE TRIAL</div>
+      <div style="font-size:0.83rem; color: var(--muted); margin-bottom: 24px;">We'll call you back within 2 hours to confirm your slot.</div>
+      <form id="modalForm" onsubmit="submitModal(event)">
+        <div class="form-group"><label>Full Name *</label><input type="text" name="name" placeholder="Rahul Sharma" required /></div>
+        <div class="form-group"><label>Mobile Number *</label><input type="tel" name="phone" placeholder="9876543210" required /></div>
+        <div class="form-group"><label>Interested In</label>
+          <select name="planId">
+            <option value="">Any plan (we'll guide you)</option>
+            <option value="monthly">Monthly – ₹1,499</option>
+            <option value="quarterly">Quarterly – ₹3,999</option>
+            <option value="annual">Annual – ₹11,999</option>
+          </select>
+        </div>
+        <button type="submit" class="form-submit" id="modalSubmit">GET FREE TRIAL PASS →</button>
+        <div class="form-msg" id="modalMsg"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- STICKY CTA -->
+  <div class="sticky-cta" id="stickyCta">
+    <div class="sticky-left">🔥 Ready to transform? <span>Your first day is FREE.</span></div>
+    <div class="sticky-right">
+      <a href="tel:+917015205692" class="btn-secondary" style="padding:10px 20px; font-size:0.85rem; border-radius:6px;">📞 Call Now</a>
+      <button class="btn-primary" style="padding:10px 20px; font-size:0.85rem; border-radius:6px;" onclick="openModal()">BOOK FREE TRIAL</button>
+    </div>
+  </div>
+
+<script src="app.js"></script>
+<script type="application/json" id="legacy-inline-script">
+const API = '';  // same origin; set to 'http://localhost:3000' for dev
+
+// ── TICKER ──
+const tickerItems = ['PANIPAT\'S BIGGEST GYM','SWIMMING POOL','SAUNA & STEAM','CROSSFIT','ZUMBA','YOGA CLASSES','WEIGHT TRAINING','PERSONAL TRAINING','CYCLING','NUTRITION CONSULTING','OPEN 5:30 AM','CERTIFIED TRAINERS','FACE LOCK ENTRY','4.8 ★ RATED'];
+const ticker = document.getElementById('ticker');
+const doubled = [...tickerItems, ...tickerItems];
+doubled.forEach((t, i) => {
+  const el = document.createElement('div');
+  el.className = 'ticker-item' + (i % 3 === 0 ? ' highlight' : '');
+  el.textContent = t;
+  ticker.appendChild(el);
+});
+
+// ── TICKER BAR ──
+const barItems = ['SWIMMING POOL','SAUNA','CROSSFIT','ZUMBA','YOGA','WEIGHT TRAINING','PERSONAL TRAINING','NUTRITION CONSULTING','4.8★ GOOGLE RATING','PANIPAT\'S BIGGEST GYM'];
+const bar = document.getElementById('tickerBar');
+const barDoubled = [...barItems, ...barItems];
+barDoubled.forEach(t => {
+  const el = document.createElement('span');
+  el.innerHTML = t + ' <span class="ticker-dot">✦</span> ';
+  bar.appendChild(el);
+});
+
+// ── AMENITIES ──
+const amenities = ['🏊 Swimming Pool','🌡️ Sauna','⚡ CrossFit','💃 Zumba','🧘 Yoga','🏋️ Weight Training','🎯 Personal Training','🚴 Cycling','🥗 Nutrition'];
+const amenDiv = document.getElementById('amenities');
+amenities.forEach(a => {
+  const el = document.createElement('div');
+  el.className = 'amenity-tag';
+  el.textContent = a;
+  amenDiv.appendChild(el);
+});
+
+// ── LOAD SERVICES ──
+async function loadServices() {
+  try {
+    const r = await fetch(API + '/api/services');
+    const d = await r.json();
+    const grid = document.getElementById('servicesGrid');
+    grid.innerHTML = d.data.map(s => `
+      <div class="service-card">
+        <span class="service-icon">${s.icon}</span>
+        <div class="service-name">${s.name}</div>
+        <div class="service-desc">${s.desc}</div>
+      </div>`).join('');
+  } catch(e) { console.error('Services load failed', e); }
+}
+
+// ── LOAD PLANS ──
+async function loadPlans() {
+  try {
+    const r = await fetch(API + '/api/plans');
+    const d = await r.json();
+    const grid = document.getElementById('plansGrid');
+    grid.innerHTML = d.data.map(p => `
+      <div class="plan-card ${p.popular ? 'popular' : ''}">
+        ${p.popular ? '<div class="popular-badge">MOST POPULAR</div>' : ''}
+        <div class="plan-name">${p.name}</div>
+        ${p.originalPrice ? `<div class="plan-old">₹${p.originalPrice.toLocaleString()}</div>` : ''}
+        <div class="plan-price-row">
+          <span class="plan-currency">₹</span>
+          <span class="plan-price">${p.price.toLocaleString()}</span>
+        </div>
+        <div class="plan-duration">${p.duration}</div>
+        <ul class="plan-features">${p.features.map(f => `<li>${f}</li>`).join('')}</ul>
+        <button class="${p.popular ? 'plan-btn plan-btn-filled' : 'plan-btn plan-btn-outline'}"
+          onclick="openModalWithPlan('${p.id}')">
+          ${p.popular ? 'GET STARTED NOW' : 'CHOOSE PLAN'}
+        </button>
+      </div>`).join('');
+  } catch(e) { console.error('Plans load failed', e); }
+}
+
+// ── LOAD REVIEWS ──
+async function loadReviews() {
+  try {
+    const r = await fetch(API + '/api/reviews');
+    const d = await r.json();
+    const grid = document.getElementById('reviewsGrid');
+    grid.innerHTML = d.data.map(rev => `
+      <div class="review-card">
+        <div class="review-stars">${'★'.repeat(rev.rating)}</div>
+        <div class="review-text">"${rev.text}"</div>
+        <div class="review-author">
+          <div class="review-avatar">${rev.name[0]}</div>
+          <div>
+            <div class="review-name">${rev.name}</div>
+            <div class="review-time">${rev.time}</div>
+          </div>
+        </div>
+      </div>`).join('');
+  } catch(e) { console.error('Reviews load failed', e); }
+}
+
+// ── MODAL ──
+function openModal() {
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function openModalWithPlan(planId) {
+  openModal();
+  const sel = document.querySelector('#modalForm select[name="planId"]');
+  if (sel) sel.value = planId;
+}
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeModalOutside(e) {
+  if (e.target === document.getElementById('modalOverlay')) closeModal();
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// ── FORM SUBMIT HELPER ──
+async function submitLead(formEl, btnEl, msgEl) {
+  const data = Object.fromEntries(new FormData(formEl));
+  btnEl.disabled = true;
+  btnEl.textContent = 'Sending...';
+  msgEl.style.display = 'none';
+  try {
+    const r = await fetch(API + '/api/leads', {
+      method: 'POST', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify(data)
+    });
+    const d = await r.json();
+    msgEl.textContent = d.message;
+    msgEl.className = 'form-msg ' + (d.success ? 'success' : 'error');
+    msgEl.style.display = 'block';
+    if (d.success) { formEl.reset(); btnEl.textContent = '✅ REQUEST SENT!'; }
+    else { btnEl.disabled = false; btnEl.textContent = 'TRY AGAIN'; }
+  } catch(e) {
+    msgEl.textContent = 'Network error. Please call us: 70152 05692';
+    msgEl.className = 'form-msg error'; msgEl.style.display = 'block';
+    btnEl.disabled = false; btnEl.textContent = 'RETRY';
+  }
+}
+
+function submitTrial(e) {
+  e.preventDefault();
+  submitLead(e.target, document.getElementById('trialSubmit'), document.getElementById('trialMsg'));
+}
+function submitModal(e) {
+  e.preventDefault();
+  submitLead(e.target, document.getElementById('modalSubmit'), document.getElementById('modalMsg'));
+}
+
+async function submitContact(e) {
+  e.preventDefault();
+  const formEl = e.target;
+  const btnEl = document.getElementById('contactSubmit');
+  const msgEl = document.getElementById('contactMsg');
+  const data = Object.fromEntries(new FormData(formEl));
+  btnEl.disabled = true; btnEl.textContent = 'Sending...';
+  msgEl.style.display = 'none';
+  try {
+    const r = await fetch(API + '/api/contact', {
+      method: 'POST', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify(data)
+    });
+    const d = await r.json();
+    msgEl.textContent = d.message;
+    msgEl.className = 'form-msg ' + (d.success ? 'success' : 'error');
+    msgEl.style.display = 'block';
+    if (d.success) { formEl.reset(); btnEl.textContent = '✅ MESSAGE SENT!'; }
+    else { btnEl.disabled = false; btnEl.textContent = 'RETRY'; }
+  } catch(e) {
+    msgEl.textContent = 'Network error. Please call 70152 05692.';
+    msgEl.className = 'form-msg error'; msgEl.style.display = 'block';
+    btnEl.disabled = false; btnEl.textContent = 'RETRY';
+  }
+}
+
+// ── SCROLL ANIMATIONS ──
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// ── STICKY CTA ──
+let scrolled = false;
+window.addEventListener('scroll', () => {
+  const st = document.getElementById('stickyCta');
+  if (window.scrollY > 600 && !scrolled) {
+    st.classList.add('visible'); scrolled = true;
+  } else if (window.scrollY < 300 && scrolled) {
+    st.classList.remove('visible'); scrolled = false;
+  }
+});
+
+// ── INIT ──
+loadServices();
+loadPlans();
+loadReviews();
+</script>
+</body>
+</html>

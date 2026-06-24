@@ -1,0 +1,338 @@
+{
+  "theme": {
+    "bg": "#111827",
+    "bg2": "#172033",
+    "card": "#202A3D",
+    "card2": "#27354D",
+    "cyan": "#F97316",
+    "cyanDim": "rgba(249,115,22,0.14)",
+    "cyanGlow": "rgba(249,115,22,0.34)",
+    "text": "#F8FAFC",
+    "muted": "#A7B0C0",
+    "border": "rgba(255,255,255,0.10)",
+    "gold": "#FACC15"
+  },
+  "seo": {
+    "title": "S3 Fitness - Panipat's Biggest Gym | Swimming Pool, Sauna, CrossFit",
+    "description": "S3 Fitness - Panipat's largest gym with swimming pool, sauna, CrossFit, Zumba, yoga, certified trainers and nutrition consulting. Join now in Sec-19, Sushant City."
+  },
+  "brand": {
+    "name": "S3",
+    "suffix": "FITNESS"
+  },
+  "nav": {
+    "links": [
+      { "label": "Services", "href": "#services" },
+      { "label": "Plans", "href": "#plans" },
+      { "label": "Why Us", "href": "#why" },
+      { "label": "Reviews", "href": "#reviews" },
+      { "label": "Contact", "href": "#contact" }
+    ],
+    "cta": "FREE TRIAL"
+  },
+  "hero": {
+    "badge": "Panipat's Largest Gym | 4.8 Star | 144 Reviews",
+    "title": ["TRAIN", "HARDER.", "LIVE", "STRONGER."],
+    "accentTitleIndex": 1,
+    "subtitle": "Panipat's biggest fitness destination - 14+ services under one roof. From heavy iron to swimming laps, from CrossFit to Zumba, S3 Fitness has your transformation covered.",
+    "primaryCta": "CLAIM YOUR FREE TRIAL",
+    "secondaryCta": "VIEW PLANS",
+    "stats": [
+      { "number": "10K+", "label": "ACTIVE MEMBERS" },
+      { "number": "14+", "label": "FITNESS PROGRAMS" },
+      { "number": "4.8*", "label": "GOOGLE RATING" },
+      { "number": "5+", "label": "YEARS IN BUSINESS" }
+    ],
+    "rating": {
+      "stars": 5,
+      "score": "4.8",
+      "count": "144 Google Reviews"
+    },
+    "ticker": [
+      "PANIPAT'S BIGGEST GYM",
+      "SWIMMING POOL",
+      "SAUNA & STEAM",
+      "CROSSFIT",
+      "ZUMBA",
+      "YOGA CLASSES",
+      "WEIGHT TRAINING",
+      "PERSONAL TRAINING",
+      "CYCLING",
+      "NUTRITION CONSULTING",
+      "OPEN 5:30 AM",
+      "CERTIFIED TRAINERS",
+      "FACE LOCK ENTRY",
+      "4.8 STAR RATED"
+    ],
+    "amenities": [
+      "Swimming Pool",
+      "Sauna",
+      "CrossFit",
+      "Zumba",
+      "Yoga",
+      "Weight Training",
+      "Personal Training",
+      "Cycling",
+      "Nutrition"
+    ]
+  },
+  "tickerBar": [
+    "SWIMMING POOL",
+    "SAUNA",
+    "CROSSFIT",
+    "ZUMBA",
+    "YOGA",
+    "WEIGHT TRAINING",
+    "PERSONAL TRAINING",
+    "NUTRITION CONSULTING",
+    "4.8 STAR GOOGLE RATING",
+    "PANIPAT'S BIGGEST GYM"
+  ],
+  "sections": {
+    "services": {
+      "eyebrow": "WHAT WE OFFER",
+      "title": "EVERYTHING YOU NEED<br>TO GET RESULTS",
+      "subtitle": "From elite strength equipment to a full swimming pool and sauna - we've built a complete fitness ecosystem in Sec-19, Panipat."
+    },
+    "why": {
+      "eyebrow": "WHY S3 FITNESS",
+      "title": "PANIPAT'S MOST COMPLETE GYM",
+      "subtitle": "We're not just bigger - we're better equipped, better staffed, and designed to take your fitness seriously.",
+      "stats": [
+        { "number": "30K+", "label": "SQ FT SPACE" },
+        { "number": "50+", "label": "EQUIPMENT STATIONS" },
+        { "number": "15+", "label": "CERTIFIED TRAINERS" },
+        { "number": "6AM", "label": "OPENS EARLY" }
+      ],
+      "items": [
+        {
+          "icon": "01",
+          "title": "Massive, Modern Facility",
+          "text": "Panipat's largest gym floor with brand-new machines, proper ventilation, and a clean environment that members rave about."
+        },
+        {
+          "icon": "02",
+          "title": "Certified, Supportive Trainers",
+          "text": "Our trainers don't just watch - they guide, motivate, and adjust your form. Professional, friendly, and results-focused."
+        },
+        {
+          "icon": "03",
+          "title": "Swimming Pool + Sauna",
+          "text": "Full aquatics zone and recovery sauna - features you won't find at any other gym in Panipat."
+        },
+        {
+          "icon": "04",
+          "title": "Face Lock Entry & Cafe",
+          "text": "Secure face-recognition access, a cafeteria area, and a supplements corner for the complete premium experience."
+        }
+      ]
+    },
+    "plans": {
+      "eyebrow": "MEMBERSHIP",
+      "title": "PICK YOUR PLAN",
+      "subtitle": "Transparent pricing with zero hidden fees. Every plan includes full gym access and locker room."
+    },
+    "reviews": {
+      "eyebrow": "WHAT MEMBERS SAY",
+      "title": "4.8 STARS FROM<br>144 REAL MEMBERS",
+      "subtitle": "Don't take our word for it - here's what Panipat's fitness community says about training at S3.",
+      "allReviewsText": "Read all 144 reviews on Google ->",
+      "allReviewsUrl": "https://www.google.com/search?q=S3+Fitness+Panipat"
+    },
+    "contact": {
+      "eyebrow": "GET IN TOUCH",
+      "title": "FIND US IN PANIPAT",
+      "subtitle": "Visit us, call us, or drop a message - we'll get back to you fast."
+    }
+  },
+  "services": [
+    { "name": "Weight Training", "icon": "WT", "desc": "State-of-the-art equipment with expert guidance" },
+    { "name": "Swimming Pool", "icon": "SP", "desc": "Olympic-sized pool for aquatic fitness" },
+    { "name": "CrossFit", "icon": "CF", "desc": "High-intensity functional training sessions" },
+    { "name": "Yoga Classes", "icon": "YG", "desc": "Daily sessions for flexibility and mindfulness" },
+    { "name": "Zumba", "icon": "ZU", "desc": "Fun cardio dance fitness classes" },
+    { "name": "Sauna & Steam", "icon": "SS", "desc": "Post-workout recovery and relaxation" },
+    { "name": "Personal Training", "icon": "PT", "desc": "Certified trainers tailored to your goals" },
+    { "name": "Nutrition Consulting", "icon": "NC", "desc": "Custom diet plans from expert nutritionists" },
+    { "name": "Cycling", "icon": "CY", "desc": "Indoor cycling for maximum cardio burn" }
+  ],
+  "plans": [
+    {
+      "id": "monthly",
+      "name": "Monthly",
+      "price": 1499,
+      "duration": "1 Month",
+      "features": ["Full Gym Access", "Locker Room", "Basic Trainer Guidance", "Group Classes"],
+      "popular": false,
+      "buttonText": "CHOOSE PLAN"
+    },
+    {
+      "id": "quarterly",
+      "name": "Quarterly",
+      "price": 3999,
+      "originalPrice": 4497,
+      "duration": "3 Months",
+      "features": ["Full Gym Access", "Locker Room", "Personal Trainer (2x/week)", "All Group Classes", "Nutrition Consultation"],
+      "popular": true,
+      "badge": "MOST POPULAR",
+      "buttonText": "GET STARTED NOW"
+    },
+    {
+      "id": "annual",
+      "name": "Annual",
+      "price": 11999,
+      "originalPrice": 17988,
+      "duration": "12 Months",
+      "features": ["Full Gym Access", "Locker Room", "Personal Trainer (Unlimited)", "All Group Classes", "Nutrition Consultation", "Swimming Pool", "Sauna Access"],
+      "popular": false,
+      "buttonText": "CHOOSE PLAN"
+    }
+  ],
+  "reviews": [
+    { "name": "Gautam Gumber", "rating": 5, "text": "The gym is clean, well-equipped, and has a positive, motivating atmosphere. The trainers are excellent and really push you to your limits.", "time": "2 months ago" },
+    { "name": "Vansh Rawal", "rating": 5, "text": "Best gym experience I have ever had. The space is massive and all equipment is top quality. Love the swimming pool!", "time": "4 months ago" },
+    { "name": "DARSHIT JAIN", "rating": 5, "text": "Good environment, all trainers are friendly and the place is very hygienic. Highly recommend S3 Fitness to everyone in Panipat.", "time": "9 months ago" },
+    { "name": "Rajat F", "rating": 5, "text": "Best gym in Panipat - big space, all assets available, staff very helpful and the owner is also very friendly.", "time": "4 months ago" }
+  ],
+  "forms": {
+    "trial": {
+      "visualText": "FREE<br>TRIAL<br>TODAY",
+      "badgeNumber": "FREE",
+      "badgeLabel": "1-Day Trial Pass",
+      "title": "BOOK YOUR FREE TRIAL",
+      "subtitle": "No commitment. No credit card. Just show up and experience S3 Fitness for free.",
+      "submitText": "GET MY FREE TRIAL PASS ->",
+      "notice": "Our team calls within 2 hours to confirm your slot.",
+      "fields": {
+        "nameLabel": "Full Name *",
+        "namePlaceholder": "Rahul Sharma",
+        "phoneLabel": "Mobile Number *",
+        "phonePlaceholder": "9876543210",
+        "emailLabel": "Email (Optional)",
+        "emailPlaceholder": "rahul@email.com",
+        "planLabel": "Interested In",
+        "planPlaceholder": "Choose a plan...",
+        "goalLabel": "Your Fitness Goal",
+        "goalPlaceholder": "Select your goal..."
+      },
+      "goals": [
+        { "value": "weight-loss", "label": "Weight Loss" },
+        { "value": "muscle-gain", "label": "Muscle Gain" },
+        { "value": "endurance", "label": "Endurance & Cardio" },
+        { "value": "flexibility", "label": "Flexibility & Yoga" },
+        { "value": "swimming", "label": "Swimming / Aquatics" },
+        { "value": "overall", "label": "Overall Fitness" }
+      ]
+    },
+    "contact": {
+      "nameLabel": "Name *",
+      "namePlaceholder": "Your name",
+      "phoneLabel": "Phone",
+      "phonePlaceholder": "9876543210",
+      "subjectLabel": "Subject",
+      "subjectPlaceholder": "Membership query",
+      "messageLabel": "Message *",
+      "messagePlaceholder": "What would you like to know?",
+      "submitText": "SEND MESSAGE ->"
+    },
+    "modal": {
+      "title": "BOOK FREE TRIAL",
+      "subtitle": "We'll call you back within 2 hours to confirm your slot.",
+      "nameLabel": "Full Name *",
+      "phoneLabel": "Mobile Number *",
+      "planLabel": "Interested In",
+      "planPlaceholder": "Any plan (we'll guide you)",
+      "submitText": "GET FREE TRIAL PASS ->",
+      "closeLabel": "x"
+    }
+  },
+  "contact": {
+    "items": [
+      {
+        "icon": "AD",
+        "label": "Address",
+        "html": "Sec-19, near Mount Abu School,<br>Ansals Sushant City, Azizullahpur Village,<br>Panipat, Haryana - 132104"
+      },
+      {
+        "icon": "PH",
+        "label": "Phone",
+        "text": "+91 70152 05692",
+        "href": "tel:+917015205692"
+      },
+      {
+        "icon": "IG",
+        "label": "Instagram",
+        "text": "@s3_fitness_pnp | 7.7K+ followers",
+        "href": "https://instagram.com/s3_fitness_pnp"
+      }
+    ],
+    "hoursTitle": "OPENING HOURS",
+    "hours": [
+      { "day": "Monday - Friday", "time": "5:30 AM - 10:00 PM", "status": "OPEN NOW" },
+      { "day": "Saturday", "time": "6:00 AM - 9:00 PM" },
+      { "day": "Sunday", "time": "7:00 AM - 8:00 PM" }
+    ],
+    "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.7827774413837!2d76.99!3d29.39!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390dd9da23baa6b3%3A0x1678759f46f0e345!2sS3%20Fitness%20-%20Best%20Gym%20in%20Panipat!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin",
+    "directionsUrl": "https://maps.google.com/?q=S3+Fitness+Panipat",
+    "directionsText": "Get Directions",
+    "callText": "Call Us Now",
+    "phoneHref": "tel:+917015205692",
+    "phoneShort": "70152 05692"
+  },
+  "footer": {
+    "tagline": "Panipat's biggest and best gym. Certified trainers, swimming pool, sauna, and 14+ fitness programs - all under one roof in Sec-19, Sushant City.",
+    "socialLinks": [
+      { "label": "Instagram", "href": "https://instagram.com/s3_fitness_pnp", "text": "IG" },
+      { "label": "Facebook", "href": "https://facebook.com/S3fitnesspanipat", "text": "FB" },
+      { "label": "Call", "href": "tel:+917015205692", "text": "PH" }
+    ],
+    "columns": [
+      {
+        "title": "QUICK LINKS",
+        "links": [
+          { "label": "Services", "href": "#services" },
+          { "label": "Membership", "href": "#plans" },
+          { "label": "About Us", "href": "#why" },
+          { "label": "Reviews", "href": "#reviews" },
+          { "label": "Free Trial", "href": "#trial" }
+        ]
+      },
+      {
+        "title": "PROGRAMS",
+        "links": [
+          { "label": "Weight Training", "href": "#services" },
+          { "label": "CrossFit", "href": "#services" },
+          { "label": "Yoga & Zumba", "href": "#services" },
+          { "label": "Swimming", "href": "#services" },
+          { "label": "Personal Training", "href": "#services" }
+        ]
+      },
+      {
+        "title": "CONTACT",
+        "links": [
+          { "label": "70152 05692", "href": "tel:+917015205692" },
+          { "label": "@s3_fitness_pnp", "href": "https://instagram.com/s3_fitness_pnp" },
+          { "label": "Sec-19, Sushant City,<br>Panipat, Haryana" },
+          { "label": "Open: 5:30 AM - 10 PM" }
+        ]
+      }
+    ],
+    "bottomLeft": "Copyright 2026 S3 Fitness, Panipat. All rights reserved.",
+    "bottomRight": "Built for champions."
+  },
+  "stickyCta": {
+    "text": "Ready to transform?",
+    "highlight": "Your first day is FREE.",
+    "callText": "Call Now",
+    "buttonText": "BOOK FREE TRIAL"
+  },
+  "messages": {
+    "leadNetworkError": "Network error. Please call us: 70152 05692",
+    "contactNetworkError": "Network error. Please call 70152 05692.",
+    "sending": "Sending...",
+    "requestSent": "REQUEST SENT!",
+    "messageSent": "MESSAGE SENT!",
+    "tryAgain": "TRY AGAIN",
+    "retry": "RETRY"
+  }
+}

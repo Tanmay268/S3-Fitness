@@ -19,12 +19,19 @@ const leads = [];
 const inquiries = [];
 
 async function sendToGoogleSheet(type, payload) {
-  if (!GOOGLE_SHEETS_WEBHOOK_URL) return;
+  if (!GOOGLE_SHEETS_WEBHOOK_URL) {
+    console.warn('[GOOGLE SHEETS] GOOGLE_SHEETS_WEBHOOK_URL is not configured. Skipping sync.');
+    return;
+  }
+
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 15000);
 
   try {
     const response = await fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
+      signal: controller.signal,
       body: JSON.stringify({
         type,
         notificationEmail: ADMIN_NOTIFICATION_EMAIL,
@@ -32,23 +39,43 @@ async function sendToGoogleSheet(type, payload) {
       })
     });
     const text = await response.text();
+    const responseSummary = formatGoogleSheetsResponse(text);
 
     if (!response.ok) {
-      console.error(`[GOOGLE SHEETS ERROR] ${response.status}: ${text}`);
+      console.error(`[GOOGLE SHEETS ERROR] ${response.status}: ${responseSummary}`);
       return;
     }
 
     try {
       const result = JSON.parse(text);
       if (!result.success) {
-        console.error(`[GOOGLE SHEETS ERROR] ${text}`);
+        console.error(`[GOOGLE SHEETS ERROR] ${result.error || responseSummary}`);
+      } else {
+        console.log(`[GOOGLE SHEETS] ${type} synced to sheet.`);
       }
     } catch {
-      console.error(`[GOOGLE SHEETS ERROR] Unexpected response: ${text.slice(0, 300)}`);
+      console.error(`[GOOGLE SHEETS ERROR] Unexpected non-JSON response: ${responseSummary}`);
     }
   } catch (error) {
-    console.error('[GOOGLE SHEETS ERROR]', error.message);
+    const message = error.name === 'AbortError'
+      ? 'Request timed out after 15 seconds'
+      : error.message;
+
+    console.error('[GOOGLE SHEETS ERROR]', message);
+  } finally {
+    clearTimeout(timeout);
   }
+}
+
+function formatGoogleSheetsResponse(text) {
+  const withoutTags = text
+    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  return (withoutTags || text).slice(0, 1200);
 }
 
 // ─── Membership Plans ───────────────────────────────────────────────
@@ -129,15 +156,19 @@ app.post('/api/leads', async (req, res) => {
     return res.status(400).json({ success: false, message: 'Please enter a valid 10-digit Indian mobile number.' });
   }
 
+  const selectedPlan = plans.find((plan) => plan.id === planId);
   const lead = {
     id: Date.now(),
     name: name.trim(),
     phone: phone.trim(),
     email: email ? email.trim() : null,
     planId: planId || null,
+    plan: selectedPlan ? selectedPlan.name : planId || null,
+    membershipValue: selectedPlan ? selectedPlan.price : null,
     goal: goal || null,
     createdAt: new Date().toISOString(),
-    status: 'new'
+    status: 'New Lead',
+    source: 'Website'
   };
 
   leads.push(lead);
@@ -166,7 +197,9 @@ app.post('/api/contact', async (req, res) => {
     email: email ? email.trim() : null,
     subject: subject || 'General Inquiry',
     message: message.trim(),
-    createdAt: new Date().toISOString()
+    createdAt: new Date().toISOString(),
+    status: 'New Lead',
+    source: 'Website'
   };
 
   inquiries.push(inquiry);

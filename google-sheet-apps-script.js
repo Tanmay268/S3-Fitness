@@ -1,9 +1,8 @@
 // If this script is bound to your Google Sheet, leave SPREADSHEET_ID blank.
 // If it is a standalone Apps Script project, paste the Sheet ID here.
 const SPREADSHEET_ID = '1970xg3EdpP5wV2beiaYvR-MzhD2g-vlMohATbA5GyK0';
-const SHEET_GID = 901577030;
 const SHEET_NAME = 'S3 GYM LEADS';
-const ADMIN_EMAIL = '';
+const ADMIN_EMAIL = 'kaushiktanmay332@gmail.com';
 const CRM_HEADERS = [
   'Received At',
   'Name',
@@ -11,91 +10,62 @@ const CRM_HEADERS = [
   'WhatsApp',
   'Email',
   'Plan',
-  'Membership Value',
   'Goal',
   'Status',
   'Priority',
   'Follow Up Done',
-  'Next Follow Up',
-  'Last Contacted',
   'Notes',
-  'Subject',
   'Message',
   'Source',
-  'Lead Age',
+  'Membership Value',
+  'Subject',
   'ID',
   'Type',
   'Created At'
 ];
 
 function doPost(e) {
-  try {
-    const sheet = getSheet();
-    const data = JSON.parse((e.postData && e.postData.contents) || '{}');
+  const sheet = getSheet();
+  const data = JSON.parse(e.postData.contents);
 
-    ensureHeaders(sheet);
-    appendCrmRow(sheet, data);
+  ensureHeaders(sheet);
+  appendCrmRow(sheet, data);
 
-    sendNotificationEmail(data);
+  sendNotificationEmail(data);
 
-    return jsonResponse({ success: true });
-  } catch (error) {
-    console.error(error && error.stack ? error.stack : error);
-
-    return jsonResponse({
-      success: false,
-      error: error && error.message ? error.message : String(error)
-    });
-  }
-}
-
-function doGet() {
-  try {
-    const sheet = getSheet();
-
-    return jsonResponse({
-      success: true,
-      sheet: sheet.getName(),
-      headers: getHeaders(sheet)
-    });
-  } catch (error) {
-    return jsonResponse({
-      success: false,
-      error: error && error.message ? error.message : String(error)
-    });
-  }
+  return ContentService
+    .createTextOutput(JSON.stringify({ success: true }))
+    .setMimeType(ContentService.MimeType.JSON);
 }
 
 function sendNotificationEmail(data) {
-  const recipient = data.notificationEmail || ADMIN_EMAIL;
-  if (!recipient) return;
+  const subject = `🔥 New Gym Lead: ${data.name || 'Unknown Lead'}`;
 
-  const submissionType = data.type === 'contact' ? 'Contact form' : 'Free trial form';
-  const subject = `New ${submissionType} submission - ${data.name || 'S3 Fitness'}`;
-  const plan = data.plan || data.planName || data.planId || '-';
-  const body = [
-    `New ${submissionType} submission`,
-    '',
-    `Name: ${data.name || '-'}`,
-    `Phone: ${data.phone || '-'}`,
-    `Email: ${data.email || '-'}`,
-    `Plan: ${plan}`,
-    `Goal: ${data.goal || '-'}`,
-    `Subject: ${data.subject || '-'}`,
-    `Message: ${data.message || '-'}`,
-    `Status: ${normalizeStatus(data.status)}`,
-    `Created At: ${data.createdAt || new Date().toISOString()}`
-  ].join('\n');
+  const whatsapp = data.phone
+    ? `https://wa.me/91${String(data.phone).replace(/\D/g, '')}`
+    : 'N/A';
 
-  try {
-    MailApp.sendEmail({
-      to: recipient,
-      subject,
-      body
-    });
-  } catch (error) {
-    console.error(`Notification email failed: ${error.message}`);
-  }
+  const body = `
+🏋️ New Lead Received
+
+Name: ${data.name || '-'}
+Phone: ${data.phone || '-'}
+Email: ${data.email || '-'}
+Plan: ${data.plan || '-'}
+Goal: ${data.goal || '-'}
+
+WhatsApp:
+${whatsapp}
+
+CRM:
+https://docs.google.com/spreadsheets/d/1970xg3EdpP5wV2beiaYvR-MzhD2g-vlMohATbA5GyK0/edit
+`;
+
+  MailApp.sendEmail(
+    "kaushiktanmay332@gmail.com",
+    subject,
+    body
+  );
 }
 
 function getSheet() {
@@ -107,28 +77,13 @@ function getSheet() {
     throw new Error('No spreadsheet found. Open Apps Script from the Sheet, or set SPREADSHEET_ID.');
   }
 
-  const sheetByGid = SHEET_GID
-    ? spreadsheet.getSheets().find((sheet) => sheet.getSheetId() === SHEET_GID)
-    : null;
-
-  return sheetByGid || spreadsheet.getSheetByName(SHEET_NAME) || spreadsheet.insertSheet(SHEET_NAME);
+  return spreadsheet.getSheetByName(SHEET_NAME) || spreadsheet.insertSheet(SHEET_NAME);
 }
 
 function ensureHeaders(sheet) {
   if (sheet.getLastRow() > 0) return;
 
   sheet.appendRow(CRM_HEADERS);
-  ensureFollowUpCheckboxes(sheet, 2, sheet.getMaxRows() - 1);
-}
-
-function ensureFollowUpCheckboxes(sheet, startRow, rowCount) {
-  const headers = getHeaders(sheet);
-  const followUpColumn = headers.indexOf('Follow Up Done') + 1;
-  if (!followUpColumn || rowCount < 1) return;
-
-  const range = sheet.getRange(startRow, followUpColumn, rowCount, 1);
-
-  range.insertCheckboxes();
 }
 
 function appendCrmRow(sheet, data) {
@@ -137,7 +92,6 @@ function appendCrmRow(sheet, data) {
   const row = headers.map((header) => getColumnValue(header, data, rowNumber, headers));
 
   sheet.appendRow(row);
-  ensureFollowUpCheckboxes(sheet, rowNumber, 1);
 }
 
 function getHeaders(sheet) {
@@ -150,8 +104,7 @@ function getHeaders(sheet) {
 function getColumnValue(header, data, rowNumber, headers) {
   const status = normalizeStatus(data.status);
   const createdAt = data.createdAt || new Date().toISOString();
-  const receivedAtIndex = headers.indexOf('Received At') + 1;
-  const receivedAtColumn = receivedAtIndex > 0 ? getA1Column(receivedAtIndex) : 'A';
+  const receivedAtColumn = getA1Column(headers.indexOf('Received At') + 1);
 
   switch (header) {
     case 'Received At':
@@ -174,8 +127,6 @@ function getColumnValue(header, data, rowNumber, headers) {
       return getPriorityForStatus(status);
     case 'Follow Up Done':
       return false;
-    case 'Next Follow Up':
-    case 'Last Contacted':
     case 'Notes':
       return '';
     case 'Message':
@@ -184,8 +135,6 @@ function getColumnValue(header, data, rowNumber, headers) {
       return data.source || getDefaultSource();
     case 'Membership Value':
       return Number(data.membershipValue || data.planPrice || 0) || '';
-    case 'Lead Age':
-      return `=IF(${receivedAtColumn}${rowNumber}="","",TODAY()-INT(${receivedAtColumn}${rowNumber}))`;
     case 'Subject':
       return data.subject || '';
     case 'ID':
@@ -224,7 +173,6 @@ function onEdit(e) {
 function normalizeStatus(status) {
   const value = String(status || '').trim();
   if (!value) return 'New Lead';
-  if (value.toLowerCase() === 'new') return 'New Lead';
 
   return value.charAt(0).toUpperCase() + value.slice(1);
 }
@@ -261,8 +209,33 @@ function getA1Column(columnNumber) {
   return column;
 }
 
-function jsonResponse(payload) {
-  return ContentService
-    .createTextOutput(JSON.stringify(payload))
-    .setMimeType(ContentService.MimeType.JSON);
+
+
+// *************************************** TESTING ****************************
+function testSheetInfo() {
+  const sheet = getSheet();
+
+  Logger.log("Sheet Name: " + sheet.getName());
+  Logger.log("Rows: " + sheet.getLastRow());
+  Logger.log("Columns: " + sheet.getLastColumn());
 }
+
+function testInsert() {
+  const sheet = getSheet();
+
+  sheet.appendRow([
+    new Date(),
+    "TEST USER",
+    "9999999999"
+  ]);
+}
+
+function authorizeEmail() {
+  MailApp.sendEmail(
+    "kaushiktanmay332@gmail.com",
+    "Test Email",
+    "Email notifications are working."
+  );
+}
+
+
